@@ -35,6 +35,7 @@ def evaluate_phrase(phrase):
 		operators = filter(None, re.split("[^&|]*", phrase))
 #
 # create lists of operands and operators in expression
+# must include `^` in operators delimiter to support XOR operator
 
 		buffer = int(operands.pop(0))
 #
