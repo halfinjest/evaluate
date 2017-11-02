@@ -7,6 +7,9 @@ def evaluate_operation(p, q, operator):
 
 	if operator == "|":
 		return p or q
+#
+#	if operator == "^":
+#		return (p or q) and not (p and q)
 
 def evaluate_phrase(phrase):
 	if "(" in phrase:
