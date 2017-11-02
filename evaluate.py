@@ -37,16 +37,17 @@ def evaluate_phrase(phrase):
 # create lists of operands and operators in expression
 # must include `^` in operators delimiter to support XOR operator
 
-		buffer = int(operands.pop(0))
-#
-# move foremost operand into buffer
-
 		for i in range(len(operands)):
 			if operands[i][0] == "~":
 				operands[i] = not int(operands[i][1])
 #
 # negate operands preceded by a tilde
 
+		buffer = int(operands.pop(0))
+#
+# move foremost operand into buffer
+
+		for i in range(len(operands)):
 			buffer = evaluate_operation(buffer, int(operands[i]), operators[i])
 #
 # set buffer to the operation of the buffer and the working operand and operator
