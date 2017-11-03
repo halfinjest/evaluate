@@ -14,7 +14,7 @@ def evaluate_operation(p, q, operator):
 # define optional XOR operator where p^q<->(p|q)&~(p&q)
 
 def evaluate_phrase(phrase):
-	if "(" in phrase:
+	if re.search("[()]", phrase):
 		phrase = filter(None, re.split("\(([^\(]*?)\)", phrase))
 #
 # create list of innermost parenthetical expressions
