@@ -1,4 +1,4 @@
-# evaluate
+# parse
 
 An unornamented interpreted algorithm language.
 
@@ -6,4 +6,4 @@ An unornamented interpreted algorithm language.
 
 Set the expression and input to the desired configuration, and use:
 
-`python evaluate.py`
+`python parse.py`

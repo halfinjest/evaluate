@@ -1,7 +1,7 @@
 import re
 import sys
 
-def evaluate_operation(p, q, operator):
+def parse_operation(p, q, operator):
 	if operator == "&":
 		return p and q
 
@@ -13,7 +13,7 @@ def evaluate_operation(p, q, operator):
 #
 # define optional XOR operator where p^q<->(p|q)&~(p&q)
 
-def evaluate_phrase(phrase):
+def parse_phrase(phrase):
 	if re.search("[()]", phrase):
 		phrase = filter(None, re.split("\(([^\(]*?)\)", phrase))
 #
@@ -21,11 +21,11 @@ def evaluate_phrase(phrase):
 
 		for i in range(len(phrase)):
 			if re.match("[0-9~]", phrase[i]) and phrase[i][-1] in ["0", "1"]:
-				phrase[i] = evaluate_phrase(phrase[i])
+				phrase[i] = parse_phrase(phrase[i])
 #
-# evaluate each of the innermost parenthetical expressions
+# parse each of the innermost parenthetical expressions
 
-		return evaluate_phrase("".join(phrase))
+		return parse_phrase("".join(phrase))
 #
 # continue with values in place of innermost parenthetical expressions
 
@@ -48,7 +48,7 @@ def evaluate_phrase(phrase):
 # move foremost operand into buffer
 
 		for i in range(len(operands)):
-			buffer = evaluate_operation(buffer, int(operands[i]), operators[i])
+			buffer = parse_operation(buffer, int(operands[i]), operators[i])
 #
 # set buffer to the operation of the buffer and the working operand and operator
 
@@ -80,7 +80,7 @@ def main(expression, input):
 #
 # set numeric variables in phrase to equivalent values in input
 
-				segment_output += evaluate_phrase("".join(phrase))
+				segment_output += parse_phrase("".join(phrase))
 
 			output += segment_output
 
