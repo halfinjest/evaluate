@@ -67,7 +67,7 @@ def main(expression, input):
 		for i in range(0, length - length % unique, unique):
 			segment_output = ""
 #
-# work with segments of input of length-unique
+# work with segments of input of length unique
 
 			for phrase in expression.split(","):
 				phrase = re.split("(\d+)", phrase)
