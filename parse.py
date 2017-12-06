@@ -76,7 +76,7 @@ def main(expression, input):
 
 				for j in range(len(phrase)):
 					if phrase[j].isdigit():
-						phrase[j] = input[i:i+unique][int(phrase[j])]
+						phrase[j] = input[i:i + unique][int(phrase[j])]
 #
 # set numeric variables in phrase to equivalent values in input
 
