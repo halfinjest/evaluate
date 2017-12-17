@@ -59,7 +59,7 @@ def main(expression, input):
 
 	output = ""
 
-	unique = max([int(item) for item in filter(None, re.split("[^0-9]*", expression))]) + 1
+	unique = max(int(item) for item in filter(None, re.split("[^0-9]*", expression))) + 1
 #
 # get number of unique numeric variables based on greatest variable in expression
 
